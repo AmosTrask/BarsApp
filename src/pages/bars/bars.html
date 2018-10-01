@@ -7,35 +7,18 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-card>
+  <ion-card *ngFor="let bar of bars">
 
     <ion-card-header>
-      Myles Breen's Bar
+      {{bar.name}}
     </ion-card-header>
 
     <ion-card-content>
       <p>
-        18 Shannon St, Limerick, V94 DXN3.
+        {{bar.adress}}
       </p>
       <p>
-        Open until 23:30.
-      </p>
-    </ion-card-content>
-
-  </ion-card>
-
-  <ion-card>
-
-    <ion-card-header>
-      Flannerys Bar Limerick
-    </ion-card-header>
-
-    <ion-card-content>
-      <p>
-        17 Upper Denmark St, Limerick
-      </p>
-      <p>
-        Open until 23:45.
+       
       </p>
     </ion-card-content>
 
