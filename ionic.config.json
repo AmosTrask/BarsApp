@@ -1,5 +1,7 @@
 {
   "name": "NightLifeApp",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular"
 }
