@@ -49,5 +49,4 @@ export class BarsPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
-
 }
