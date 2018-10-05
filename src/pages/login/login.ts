@@ -12,7 +12,7 @@ import {TabsPage} from '../tabs/tabs';
 export class LoginPage {
 
   loginInfos: LoginInfos = {
-    username: "",
+    login: "",
     password: ""
   };
 
