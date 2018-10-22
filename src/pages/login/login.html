@@ -4,34 +4,36 @@
     <form (ngSubmit)="login()" #registerForm="ngForm">
       <ion-row>
         <ion-col>
-          <ion-list inset>
 
-            <h2>Sign in</h2>
+          <h2>Sign in</h2>
 
-            <ion-item>
-              <ion-label floating>Login</ion-label>
-              <ion-input type="text" name="login" [(ngModel)]="loginInfos.login"
-                         required></ion-input>
-            </ion-item>
+          <ion-item>
+            <ion-label floating>Login</ion-label>
+            <ion-input type="text" name="username" [(ngModel)]="loginInfos.username" required></ion-input>
+          </ion-item>
 
-            <ion-item>
-              <ion-label floating>Password</ion-label>
-              <ion-input type="password" name="password" [(ngModel)]="loginInfos.password"
-                         required></ion-input>
-            </ion-item>
-
-          </ion-list>
+          <ion-item>
+            <ion-label floating>Password</ion-label>
+            <ion-input type="password" name="password" [(ngModel)]="loginInfos.password" required></ion-input>
+          </ion-item>
         </ion-col>
       </ion-row>
 
       <ion-row>
-        <ion-col class="signup-col">
+        <ion-col class="signin-col">
           <button ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid">Sign in
           </button>
         </ion-col>
       </ion-row>
 
     </form>
-    <button ion-button class="register-btn" block clear (click)="createAccount()">Sign up</button>
+
+    <ion-row>
+      <ion-col class="signup-col">
+        <button ion-button class="register-btn" full (click)="createAccount()">Sign up</button>
+      </ion-col>
+    </ion-row>
+
+
   </div>
 </ion-content>

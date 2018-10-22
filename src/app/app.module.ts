@@ -18,6 +18,8 @@ import { LoginService } from '../services/login.service';
 import { AuthService } from '../services/auth.service';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from '../services/auth.interceptor';
+import { SignupPage } from '../pages/signup/signup';
+import { UserService } from '../services/user.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { AuthInterceptor } from '../services/auth.interceptor';
     MapPage,
     HomePage,
     TabsPage,
-    LoginPage
+    LoginPage,
+    SignupPage
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,8 @@ import { AuthInterceptor } from '../services/auth.interceptor';
     MapPage,
     HomePage,
     TabsPage,
-    LoginPage
+    LoginPage,
+    SignupPage
   ],
   providers: [
     StatusBar,
@@ -53,6 +57,7 @@ import { AuthInterceptor } from '../services/auth.interceptor';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     LoginService,
     AuthService,
+    UserService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

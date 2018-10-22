@@ -1,8 +1,9 @@
-import {Component} from '@angular/core';
-import {AlertController, LoadingController, NavController, NavParams} from 'ionic-angular';
-import {LoginService} from '../../services/login.service';
-import {LoginInfos} from '../../entities/loginInfos';
-import {TabsPage} from '../tabs/tabs';
+import { Component } from '@angular/core';
+import { AlertController, LoadingController, NavController, NavParams } from 'ionic-angular';
+import { LoginService } from '../../services/login.service';
+import { LoginInfos } from '../../entities/loginInfos';
+import { TabsPage } from '../tabs/tabs';
+import { SignupPage } from '../signup/signup';
 
 
 @Component({
@@ -12,13 +13,13 @@ import {TabsPage} from '../tabs/tabs';
 export class LoginPage {
 
   loginInfos: LoginInfos = {
-    login: "",
+    username: "",
     password: ""
   };
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private loginService: LoginService,
-              public alertCtrl: AlertController, public loadingCtrl: LoadingController) {
+    public alertCtrl: AlertController, public loadingCtrl: LoadingController) {
   }
 
   ionViewDidLoad() {
@@ -33,9 +34,9 @@ export class LoginPage {
     });
     loading.present();
     this.loginService.login(this.loginInfos).subscribe(() => {
-            loading.dismiss();
-            this.navCtrl.setRoot(TabsPage);
-      },
+      loading.dismiss();
+      this.navCtrl.setRoot(TabsPage);
+    },
       (err) => {
         loading.dismiss();
         console.error(err);
@@ -43,20 +44,18 @@ export class LoginPage {
         if (err.status == 0) {
           message = 'Unable to reach the server';
         } else {
-          message = err.error;
+          message = err.error.error;
         }
         let alert = this.alertCtrl.create({
           title: 'Connection failed',
+          message: message,
           buttons: ['OK']
         });
         alert.present();
       });
   }
 
-  /**
-   * Go to RegistrationPage
-   */
-  /*createAccount() {
-    this.navCtrl.push(RegistrationPage);
-  }*/
+  createAccount() {
+    this.navCtrl.push(SignupPage);
+  }
 }

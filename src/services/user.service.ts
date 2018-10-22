@@ -24,7 +24,7 @@ export class UserService {
   }
 
   addUser(user: User): Observable<User>{
-    const url = `${API_SERVER.user}/add`;
+    const url = `${API_SERVER.signup}`;
     return this.http.post<User>(url, user, httpOptions);
   }
 }
