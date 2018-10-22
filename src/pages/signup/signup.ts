@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AlertController, NavController, NavParams } from 'ionic-angular';
+import { AlertController, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { User } from "../../entities/user";
 import { UserService } from "../../services/user.service";
 import { LoginPage } from '../login/login';
@@ -14,7 +14,7 @@ export class SignupPage {
     user = new User();
 
     constructor(public navCtrl: NavController, public navParams: NavParams, private userService: UserService,
-        public alertCtrl: AlertController) { }
+        public alertCtrl: AlertController, public loadingCtrl: LoadingController) { }
 
     ionViewDidLoad() { }
 
@@ -28,8 +28,11 @@ export class SignupPage {
             alert.present();
             return;
         }
-        this.userService.addUser(this.user).subscribe((user) => {
-            this.user = user;
+        let loading = this.loadingCtrl.create({
+            content: 'Waiting for server'
+          });
+        this.userService.addUser(this.user).subscribe(() => {
+            loading.dismiss();
             this.navCtrl.setRoot(LoginPage);
         },
             (err) => {
