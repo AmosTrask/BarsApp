@@ -30,7 +30,8 @@ export class SignupPage {
         }
         let loading = this.loadingCtrl.create({
             content: 'Waiting for server'
-          });
+        });
+        loading.present();
         this.userService.addUser(this.user).subscribe(() => {
             loading.dismiss();
             this.navCtrl.setRoot(LoginPage);
