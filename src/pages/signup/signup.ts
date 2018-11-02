@@ -12,6 +12,7 @@ export class SignupPage {
 
     passwordVerification;
     user = new User();
+    birthdate: Date;
 
     constructor(public navCtrl: NavController, public navParams: NavParams, private userService: UserService,
         public alertCtrl: AlertController, public loadingCtrl: LoadingController) { }
@@ -22,6 +23,15 @@ export class SignupPage {
         if (this.user.password != this.passwordVerification) {
             let alert = this.alertCtrl.create({
                 title: 'Passwords not identicals',
+                subTitle: '',
+                buttons: ['OK']
+            });
+            alert.present();
+            return;
+        }
+        if(this.getAge(this.birthdate) < 18) {
+            let alert = this.alertCtrl.create({
+                title: 'You must be over 18',
                 subTitle: '',
                 buttons: ['OK']
             });
@@ -48,4 +58,14 @@ export class SignupPage {
             });
     }
 
+    getAge(dateString) {
+        var today = new Date();
+        var birthDate = new Date(dateString);
+        var age = today.getFullYear() - birthDate.getFullYear();
+        var m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+        return age;
+    }
 }
