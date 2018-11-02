@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Bar } from '../../entities/bar';
+import { BarsService } from '../../services/bars.services';
 
 @Component({
   selector: 'page-bars',
@@ -8,45 +9,15 @@ import { Bar } from '../../entities/bar';
 })
 export class BarsPage {
 
-  bars: Bar[] = [
-    {
-      name: "Flannery",
-      adress: "test",
-      lat: 50,
-      lng: 50,
-      hours: [{
-        day: {
-          fullName: "Monday",
-          reducedName: "Mo"
-        },
-        open: 10,
-        close: 23
-      },
-      {
-        day: {
-          fullName: "Tuesday",
-          reducedName: "Tu"
-        },
-        open: 10,
-        close: 23
-      }
-      ]
-    },
-    {
-      name: "O'Nelly",
-      adress: "test",
-      lat: 50,
-      lng: 50,
-      hours: [{
-        day: {
-          fullName: "Monday",
-          reducedName: "Mo"
-        },
-        open: 10,
-        close: 23
-      }]
-    }]
+  bars: Bar[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private barService: BarsService) {
+    this.getAllBars();
+  }
+
+  getAllBars() {
+    this.barService.getAllBars().subscribe( (bars) => {
+      this.bars = bars;
+    });
   }
 }

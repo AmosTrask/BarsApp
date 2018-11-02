@@ -6,7 +6,7 @@ import { MyApp } from './app.component';
 
 import { BarsPage } from '../pages/bars/bars';
 import { EventsPage } from '../pages/events/events';
-import { DrinkOffersPage } from '../pages/drinkOffers/drinkOffers';
+import { OffersPage } from '../pages/offers/offers';
 import { MapPage } from '../pages/map/map';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
@@ -20,18 +20,21 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from '../services/auth.interceptor';
 import { SignupPage } from '../pages/signup/signup';
 import { UserService } from '../services/user.service';
+import { BarsService } from '../services/bars.services';
+import { BarDetaillsPage } from '../pages/barDetails/barDetails';
 
 @NgModule({
   declarations: [
     MyApp,
-    DrinkOffersPage,
+    OffersPage,
     BarsPage,
     EventsPage,
     MapPage,
     HomePage,
     TabsPage,
     LoginPage,
-    SignupPage
+    SignupPage,
+    BarDetaillsPage
   ],
   imports: [
     BrowserModule,
@@ -41,14 +44,15 @@ import { UserService } from '../services/user.service';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    DrinkOffersPage,
+    OffersPage,
     BarsPage,
     EventsPage,
     MapPage,
     HomePage,
     TabsPage,
     LoginPage,
-    SignupPage
+    SignupPage,
+    BarDetaillsPage
   ],
   providers: [
     StatusBar,
@@ -58,6 +62,7 @@ import { UserService } from '../services/user.service';
     LoginService,
     AuthService,
     UserService,
+    BarsService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

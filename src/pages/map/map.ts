@@ -1,7 +1,9 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, AlertController } from 'ionic-angular';
 import leaflet from 'leaflet';
 import { Bar } from '../../entities/bar';
+import { BarsService } from '../../services/bars.services';
+import { BarDetaillsPage } from '../barDetails/barDetails';
 
 @Component({
   selector: 'page-map',
@@ -9,53 +11,23 @@ import { Bar } from '../../entities/bar';
 })
 export class MapPage {
 
-  bars: Bar[] = [
-    {
-      name: "Flannery",
-      adress: "test",
-      lat: 52.663171,
-      lng: -8.623426,
-      hours: [{
-        day: {
-          fullName: "Monday",
-          reducedName: "Mo"
-        },
-        open: 10,
-        close: 23
-      },
-      {
-        day: {
-          fullName: "Tuesday",
-          reducedName: "Tu"
-        },
-        open: 10,
-        close: 23
-      }
-      ]
-    },
-    {
-      name: "O'Nelly",
-      adress: "test",
-      lat: 52.664807,
-      lng: -8.625606,
-      hours: [{
-        day: {
-          fullName: "Monday",
-          reducedName: "Mo"
-        },
-        open: 10,
-        close: 23
-      }]
-    }]
+  bars: Bar[];
 
   @ViewChild('map') mapContainer: ElementRef;
   map: any;
-  constructor(public navCtrl: NavController) {
-
+  constructor(public navCtrl: NavController, private barService: BarsService) {
+    this.getAllBars();
   }
 
   ionViewDidEnter() {
-    if(!this.map) this.loadmap();
+    if(!this.map && this.bars) this.loadmap();
+  }
+
+  getAllBars() {
+    this.barService.getAllBars().subscribe( (bars) => {
+      this.bars = bars;
+      this.loadmap();
+    });
   }
 
   loadmap() {
@@ -78,7 +50,15 @@ export class MapPage {
     
     let markerBarGroup = leaflet.featureGroup();
     for(let bar of this.bars) {
-      let marker: any = leaflet.marker([bar.lat, bar.lng], {color: '#44444'});
+      let marker: any = leaflet.marker(bar.coordinates);
+      var domelem = document.createElement('div');
+      domelem.innerHTML = "<b>" + bar.name + "</b><br>" + bar.address;
+      const thisComponent = this;
+      domelem.onclick = function() {
+          thisComponent.goToBarDetails(bar._id, bar.name);
+      };
+      marker.bindPopup(domelem).openPopup();
+     
       markerBarGroup.addLayer(marker);
     }
     this.map.addLayer(markerBarGroup);
@@ -88,4 +68,7 @@ export class MapPage {
       })*/
   }
 
+  goToBarDetails(id: number, name: String) {
+    this.navCtrl.push(BarDetaillsPage, {'id': id, 'name': name});
+  }
 }

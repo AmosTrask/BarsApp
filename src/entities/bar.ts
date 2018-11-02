@@ -1,10 +1,13 @@
 import { Day } from "./day";
 
 export class Bar {
+    _id: number;
     name: string;
-    adress: string;
-    lat: number;
-    lng: number;
+    address: string;
+    coordinates: {
+        lat: number;
+        lng: number;
+    }
     hours: {
         day: Day;
         open: number;
