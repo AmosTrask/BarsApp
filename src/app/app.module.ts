@@ -22,6 +22,7 @@ import { SignupPage } from '../pages/signup/signup';
 import { UserService } from '../services/user.service';
 import { BarsService } from '../services/bars.services';
 import { BarDetaillsPage } from '../pages/barDetails/barDetails';
+import { OffersService } from '../services/offers.service';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { BarDetaillsPage } from '../pages/barDetails/barDetails';
     AuthService,
     UserService,
     BarsService,
+    OffersService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

@@ -17,7 +17,7 @@ export class BarDetaillsPage {
     this.getBar();
   }
 
-  getBar(){
+  getBar() {
     this.barsService.getBar(this.bar._id).subscribe((bar) => {
       this.bar = bar;
     });

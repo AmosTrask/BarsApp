@@ -68,7 +68,7 @@ export class MapPage {
       })*/
   }
 
-  goToBarDetails(id: number, name: String) {
+  goToBarDetails(id: string, name: String) {
     this.navCtrl.push(BarDetaillsPage, {'id': id, 'name': name});
   }
 }

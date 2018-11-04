@@ -7,35 +7,25 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-card>
+  <ion-card *ngFor="let offer of offers">
 
     <ion-card-header>
-      3 drinks for 10€
+      {{offer.name}}
     </ion-card-header>
 
     <ion-card-content>
       <p>
-        Only mondays.
+        {{offer.description}}
       </p>
       <p>
-        Flannerys Bar.
-      </p>
-    </ion-card-content>
-
-  </ion-card>
-
-  <ion-card>
-
-    <ion-card-header>
-      First pint is free.
-    </ion-card-header>
-
-    <ion-card-content>
-      <p>
-        Every day.
+        Price: {{offer.price}}
       </p>
       <p>
-        Myles Breen's Bar.
+        Pub/Venue: {{offer?.barName}}
+        Address: {{offer?.barAddress}}
+      </p>
+      <p>
+        Address: {{offer?.barAddress}}
       </p>
     </ion-card-content>
 
