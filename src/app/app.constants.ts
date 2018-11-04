@@ -1,13 +1,9 @@
+const base_url = 'https://nightlifeback.herokuapp.com';
+// const base_url = 'http://localhost:3000';
+
 export const API_SERVER: any = {
-  auth: 'https://nightlifeback.herokuapp.com/auth',
-  signup: 'https://nightlifeback.herokuapp.com/signup',
-  user: 'https://nightlifeback.herokuapp.com/user',
-  bars: 'https://nightlifeback.herokuapp.com/bars'
+  auth: `${base_url}/auth`,
+  signup: `${base_url}/signup`,
+  bars: `${base_url}/bars`,
+  offers: `${base_url}/offers`
 }
-
-/*export const API_SERVER: any = {
-  auth: 'http://localhost:3000/auth',
-  signup: 'http://localhost:3000/signup',
-  bars: 'http://localhost:3000/bars',
-
-}*/

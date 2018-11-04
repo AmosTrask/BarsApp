@@ -14,13 +14,12 @@ export class BarsService {
   constructor(private http: HttpClient) { }
 
   getAllBars(): Observable<Bar[]> {
-    const url = `${API_SERVER.bars}/all`;
+    const url = `${API_SERVER.bars}`;
     return this.http.get<Bar[]>(url);
   }
 
   getBar(id: number): Observable<Bar> {
-    const url = `${API_SERVER.bars}`;
-    let params = new HttpParams().set("id",id.toString());
-    return this.http.get<Bar>(url, {headers: httpOptions.headers, params: params})
+    const url = `${API_SERVER.bars}/${id}`;
+    return this.http.get<Bar>(url)
   }
 }
