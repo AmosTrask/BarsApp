@@ -1,7 +1,7 @@
 import { Day } from "./day";
 
 export class Bar {
-    _id: number;
+    _id: string;
     name: string;
     address: string;
     coordinates: {
