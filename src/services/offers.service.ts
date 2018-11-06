@@ -22,4 +22,10 @@ export class OffersService {
     const url = `${API_SERVER.offers}/${id}`;
     return this.http.get<Offer>(url)
   }
+
+  getOffersFromBar(id: string): Observable<Offer[]> {
+    const url = `${API_SERVER.offers}`;
+    let params = new HttpParams().set("barId", id );
+    return this.http.get<Offer[]>(url, {headers: httpOptions.headers, params: params}); 
+  }
 }

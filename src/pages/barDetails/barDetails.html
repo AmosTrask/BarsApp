@@ -8,3 +8,24 @@
 <ion-content>
   {{bar?.address}}
 </ion-content>
+
+<ion-content padding>
+  <ion-card *ngFor="let offer of offers">
+
+    <ion-card-header>
+      {{offer.name}}
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>
+        {{offer.description}}
+      </p>
+      <p>
+        Price: {{offer.price}}
+      </p>
+      <p>
+        Pub/Venue: {{offer?.barName}}
+    </ion-card-content>
+
+  </ion-card>
+</ion-content>
