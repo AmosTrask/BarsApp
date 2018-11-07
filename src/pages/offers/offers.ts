@@ -3,6 +3,8 @@ import { NavController } from 'ionic-angular';
 import { OffersService } from '../../services/offers.service';
 import { Offer } from '../../entities/offer';
 import { BarsService } from '../../services/bars.services';
+import { HomePage } from '../home/home';
+import { OfferType } from '../../enums/offerType';
 
 @Component({
   selector: 'page-offers',
@@ -11,8 +13,11 @@ import { BarsService } from '../../services/bars.services';
 export class OffersPage {
 
   offers: Offer[];
+  filteredOffers: Offer[];
+  offerType: OfferType;
 
   constructor(public navCtrl: NavController, private offerService: OffersService, private barsService: BarsService) {
+    this.offerType = OfferType.DRINK;
     this.getAllOffers();
   }
 
@@ -20,6 +25,7 @@ export class OffersPage {
     this.offerService.getAllOffers().subscribe((offers) => {
       this.offers = offers;
       offers.forEach((offer) => this.getBar(offer));
+      this.segmentChanged();
     });
   }
 
@@ -30,4 +36,7 @@ export class OffersPage {
     });
   }
 
+  segmentChanged() {
+    this.filteredOffers = this.offers.filter(offer => offer.offerType === this.offerType);
+  }
 }

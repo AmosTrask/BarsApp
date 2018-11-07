@@ -1,32 +1,52 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-     Offers
+      Offers
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-card *ngFor="let offer of offers">
 
-    <ion-card-header>
-      {{offer.name}}
-    </ion-card-header>
 
-    <ion-card-content>
-      <p>
-        {{offer.description}}
-      </p>
-      <p>
-        Price: {{offer.price}}
-      </p>
-      <p>
-        Pub/Venue: {{offer?.barName}}
-      </p>
-      <p>
-        Address: {{offer?.barAddress}}
-      </p>
-    </ion-card-content>
+<ion-content>
+  <div>
+    <ion-segment [(ngModel)]="offerType" (ionChange)="segmentChanged($event)">
+      <ion-segment-button value="FOOD">
+        Foods
+      </ion-segment-button>
+      <ion-segment-button value="DRINK">
+        Drinks
+      </ion-segment-button>
+      <ion-segment-button value="OTHER">
+          Others
+        </ion-segment-button>
+    </ion-segment>
+  </div>
 
-  </ion-card>
+  <div padding>
+      <ion-card *ngFor="let offer of filteredOffers">
+
+          <ion-card-header>
+            {{offer.name}}
+          </ion-card-header>
+      
+          <ion-card-content>
+            <p>
+              {{offer.description}}
+            </p>
+            <p>
+              Price: {{offer.price}}
+            </p>
+            <p>
+              Pub/Venue: {{offer?.barName}}
+            </p>
+            <p>
+              Address: {{offer?.barAddress}}
+            </p>
+          </ion-card-content>
+      
+        </ion-card>
+  </div>
+  
+
 </ion-content>
