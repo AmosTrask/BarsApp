@@ -23,6 +23,7 @@ import { UserService } from '../services/user.service';
 import { BarsService } from '../services/bars.services';
 import { BarDetaillsPage } from '../pages/barDetails/barDetails';
 import { OffersService } from '../services/offers.service';
+import { EventsService } from '../services/events.service';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { OffersService } from '../services/offers.service';
     UserService,
     BarsService,
     OffersService,
+    EventsService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

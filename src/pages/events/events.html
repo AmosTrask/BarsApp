@@ -1,24 +1,30 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Events
+     Events
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-card>
+  <ion-card *ngFor="let event of events">
 
     <ion-card-header>
-      Tue, 2 Oct. Tom Baxter
+      {{event.name}}
     </ion-card-header>
 
     <ion-card-content>
       <p>
-        Dolans Warehouse
+        {{event.description}}
       </p>
       <p>
-        V94 PD79, 4 Saint Alphonsus Street, Limerick
+        Date: {{event.date}}
+      </p>
+      <p>
+        Pub/Venue: {{event?.barName}}
+      </p>
+      <p>
+        Address: {{event?.barAddress}}
       </p>
     </ion-card-content>
 
