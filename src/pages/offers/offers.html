@@ -23,7 +23,7 @@
 
   <div padding>
     <ion-item>
-      <ion-label>Filter</ion-label>
+      <ion-label>Filter by products</ion-label>
       <ionic-selectable item-content [(ngModel)]="selectedProducts" itemValueField="_id" itemTextField="name"
         [isMultiple]="true" [items]="selectableProducts" [canSearch]="true" (onChange)="itemsChanged()">
       </ionic-selectable>

@@ -4,10 +4,12 @@ import { Bar } from '../../entities/bar';
 import { BarsService } from '../../services/bars.services';
 import { OffersService } from '../../services/offers.service';
 import { Offer } from '../../entities/offer';
-import { isTrueProperty } from 'ionic-angular/umd/util/util';
 import { Product } from '../../entities/product';
 import { ProductType } from '../../enums/productType';
 import { ProductService } from '../../services/products.service';
+import { EventsService } from '../../services/events.service';
+import { Event } from '../../entities/event';
+import moment from 'moment';
 
 @Component({
   selector: 'page-barDetails',
@@ -17,6 +19,7 @@ export class BarDetaillsPage {
 
   bar: Bar = new Bar();
   offers: Offer[];
+  events: Event[];
   segmentType = "OFFERS";
  
   showOffers: boolean = true;
@@ -34,7 +37,7 @@ export class BarDetaillsPage {
   filteredProducts: Product[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private barsService: BarsService,
-    private offersService: OffersService, private productService: ProductService) {
+    private offersService: OffersService, private productService: ProductService, private eventsService: EventsService) {
     this.bar._id = this.navParams.get('id');
     this.bar.name = this.navParams.get('name');
     this.getBar();
@@ -46,12 +49,23 @@ export class BarDetaillsPage {
       this.filteredProducts = bar.menuProducts;
       this.filteredProducts.sort(this.comparePrice);
       this.getOffersFromBar();
+      this.getEventsFromBar();
     });
   }
 
   getOffersFromBar() {
     this.offersService.getOffersFromBar(this.bar._id).subscribe((offers) => {
       this.offers = offers;
+    });
+  }
+
+  getEventsFromBar() {
+    this.eventsService.getEventsFromBar(this.bar._id).subscribe((events) => {
+      this.events = events;
+      events.forEach((event) => {
+
+        event.date = moment(event.date).format('MMMM Do, h:mm a')
+      });
     });
   }
 

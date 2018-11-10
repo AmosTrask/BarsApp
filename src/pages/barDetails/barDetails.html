@@ -66,7 +66,7 @@
         </div>
       </div>
     </div>
-    <div padding>
+    <div class="productCard">
       <ion-card *ngFor="let product of filteredProducts">
 
         <ion-card-header>
@@ -79,6 +79,32 @@
               Price:
             </strong> {{product.price}}€
           </p>
+        </ion-card-content>
+
+      </ion-card>
+
+    </div>
+  </div>
+
+  <div *ngIf="showEvents">
+
+    <div padding>
+      <ion-card *ngFor="let event of events">
+
+        <ion-card-header>
+          {{event.name}}
+        </ion-card-header>
+
+        <ion-card-content>
+          <p>
+            {{event.description}}
+          </p>
+          <p>
+            <strong>
+              Date:
+            </strong> {{event.date}}
+          </p>
+          <p>
         </ion-card-content>
 
       </ion-card>

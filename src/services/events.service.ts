@@ -22,4 +22,10 @@ export class EventsService {
     const url = `${API_SERVER.events}/${id}`;
     return this.http.get<Event>(url)
   }
+
+  getEventsFromBar(id: string): Observable<Event[]>  {
+    const url = `${API_SERVER.events}`;
+    let params = new HttpParams().set("barId", id );
+    return this.http.get<Event[]>(url, {headers: httpOptions.headers, params: params}); 
+  }
 }
