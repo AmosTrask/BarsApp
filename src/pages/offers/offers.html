@@ -16,49 +16,50 @@
         Drinks
       </ion-segment-button>
       <ion-segment-button value="OTHER">
-          Others
-        </ion-segment-button>
+        Others
+      </ion-segment-button>
     </ion-segment>
   </div>
 
   <div padding>
-      <ion-item>
-          <ion-label>Filter</ion-label>
-          <ionic-selectable
-            item-content
-            [(ngModel)]="selectedProducts"
-            itemValueField="_id"
-            itemTextField="name"
-            [isMultiple]="true"
-            [items]="selectableProducts"
-            [canSearch]="true"
-            (onChange)="itemsChanged()">
-          </ionic-selectable>
-        </ion-item>
+    <ion-item>
+      <ion-label>Filter</ion-label>
+      <ionic-selectable item-content [(ngModel)]="selectedProducts" itemValueField="_id" itemTextField="name"
+        [isMultiple]="true" [items]="selectableProducts" [canSearch]="true" (onChange)="itemsChanged()">
+      </ionic-selectable>
+    </ion-item>
 
-      <ion-card *ngFor="let offer of filteredOffers">
+    <ion-card *ngFor="let offer of filteredOffers">
 
-          <ion-card-header>
-            {{offer.name}}
-          </ion-card-header>
-      
-          <ion-card-content>
-            <p>
-              {{offer.description}}
-            </p>
-            <p>
-              Price: {{offer.price}}
-            </p>
-            <p>
-              Pub/Venue: {{offer?.barName}}
-            </p>
-            <p>
-              Address: {{offer?.barAddress}}
-            </p>
-          </ion-card-content>
-      
-        </ion-card>
+      <ion-card-header>
+        {{offer.name}}
+      </ion-card-header>
+
+      <ion-card-content>
+        <p>
+          {{offer.description}}
+        </p>
+        <p>
+          <strong>
+            Price:
+          </strong> {{offer.price}}€
+        </p>
+        <p>
+          <strong>
+            Pub:
+          </strong>
+          {{offer?.barName}}
+        </p>
+        <p>
+          <strong>
+            Address:
+          </strong>
+          {{offer?.barAddress}}
+        </p>
+      </ion-card-content>
+
+    </ion-card>
   </div>
-  
+
 
 </ion-content>
