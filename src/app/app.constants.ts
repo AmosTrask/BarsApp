@@ -6,5 +6,6 @@ export const API_SERVER: any = {
   signup: `${base_url}/signup`,
   bars: `${base_url}/bars`,
   offers: `${base_url}/offers`,
-  events: `${base_url}/events`
+  events: `${base_url}/events`,
+  products: `${base_url}/products`
 }

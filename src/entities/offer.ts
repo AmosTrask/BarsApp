@@ -1,4 +1,5 @@
-import { OfferType } from "../enums/offerType";
+import { ProductType } from "../enums/productType";
+import { Product } from "./product";
 
 export class Offer {
     _id: string;
@@ -6,7 +7,8 @@ export class Offer {
     description: string;
     price: number;
     barId: string;
-    offerType: OfferType;
+    productType: ProductType;
+    products: Product[];
     barName: string;
     barAddress: string;
 }

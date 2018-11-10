@@ -6,11 +6,9 @@
   </ion-navbar>
 </ion-header>
 
-
-
 <ion-content>
   <div>
-    <ion-segment [(ngModel)]="offerType" (ionChange)="segmentChanged($event)">
+    <ion-segment [(ngModel)]="productType" (ionChange)="segmentChanged($event)">
       <ion-segment-button value="FOOD">
         Foods
       </ion-segment-button>
@@ -24,6 +22,20 @@
   </div>
 
   <div padding>
+      <ion-item>
+          <ion-label>Filter</ion-label>
+          <ionic-selectable
+            item-content
+            [(ngModel)]="selectedProducts"
+            itemValueField="_id"
+            itemTextField="name"
+            [isMultiple]="true"
+            [items]="selectableProducts"
+            [canSearch]="true"
+            (onChange)="itemsChanged()">
+          </ionic-selectable>
+        </ion-item>
+
       <ion-card *ngFor="let offer of filteredOffers">
 
           <ion-card-header>

@@ -1,4 +1,4 @@
-export enum OfferType {
+export enum ProductType {
     DRINK = "DRINK",
     FOOD = "FOOD",
     OTHER = "OTHER",

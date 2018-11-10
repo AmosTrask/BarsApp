@@ -2,6 +2,7 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { Geolocation } from '@ionic-native/geolocation';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { IonicSelectableModule } from 'ionic-selectable';
 import { MyApp } from './app.component';
 
 import { BarsPage } from '../pages/bars/bars';
@@ -24,6 +25,7 @@ import { BarsService } from '../services/bars.services';
 import { BarDetaillsPage } from '../pages/barDetails/barDetails';
 import { OffersService } from '../services/offers.service';
 import { EventsService } from '../services/events.service';
+import { ProductService } from '../services/products.service';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,8 @@ import { EventsService } from '../services/events.service';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpClientModule
+    HttpClientModule,
+    IonicSelectableModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -66,6 +69,7 @@ import { EventsService } from '../services/events.service';
     UserService,
     BarsService,
     OffersService,
+    ProductService,
     EventsService,
     {
       provide: HTTP_INTERCEPTORS,
