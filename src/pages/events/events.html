@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-     Events
+      Events
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -18,13 +18,19 @@
         {{event.description}}
       </p>
       <p>
-        Date: {{event.date}}
+        <strong>
+          Date:
+        </strong> {{event.date}}
       </p>
       <p>
-        Pub/Venue: {{event?.barName}}
+        <strong>
+          Pub:
+        </strong> {{event?.barName}}
       </p>
       <p>
-        Address: {{event?.barAddress}}
+        <strong>
+          Address:
+        </strong> {{event?.barAddress}}
       </p>
     </ion-card-content>
 

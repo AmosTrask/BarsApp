@@ -8,5 +8,5 @@ export class Event {
     eventType: EventType;
     barName: string;
     barAddress: string;
-    date: Date;
+    date: string;
 }

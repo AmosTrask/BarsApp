@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { EventsService } from '../../services/events.service';
 import { Event } from '../../entities/event';
 import { BarsService } from '../../services/bars.services';
+import moment from 'moment';
 
 @Component({
   selector: 'page-events',
@@ -20,7 +21,10 @@ export class EventsPage {
   getAllEvents() {
     this.eventsService.getAllEvent().subscribe((events) => {
       this.events = events;
-      events.forEach((event) => this.getBar(event));
+      events.forEach((event) => {
+        this.getBar(event);
+        event.date = moment(event.date).format('MMMM Do, h:mm a')
+      });
     });
   }
 
