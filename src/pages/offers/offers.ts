@@ -53,12 +53,16 @@ export class OffersPage {
 
   segmentChanged() {
     this.filteredOffers = this.offers.filter(offer => offer.productType === this.productType);
+    this.filteredOffers.sort(this.comparePrice);
     this.selectableProducts = this.products.filter(produt => produt.productType === this.productType);
     this.selectedProducts = [];
   }
 
   itemsChanged() {
-    if(this.selectedProducts.length != 0) this.filteredOffers = this.filteredOffers.filter(offer => this.findIfProductNameIncluded(offer));
+    if(this.selectedProducts.length != 0) {
+      this.filteredOffers = this.filteredOffers.filter(offer => this.findIfProductNameIncluded(offer));
+      this.filteredOffers.sort(this.comparePrice);
+    } 
   }
 
   findIfProductNameIncluded(offer: Offer): boolean {
@@ -73,5 +77,13 @@ export class OffersPage {
       if(nameIncluded) return;
     });
     return nameIncluded;
+  }
+
+  comparePrice(offerA: Offer, offerB: Offer) {
+    if (offerA.price < offerB.price )
+       return -1;
+    if (offerA.price > offerB.price)
+      return 1;
+    return 0;
   }
 }
