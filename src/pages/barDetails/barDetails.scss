@@ -1,2 +1,14 @@
 page-barDetails {
+    .selects {
+        padding-left: 3%;
+    }
+
+    ion-label {
+        display: inline-block;
+        font-size: 18px;
+      }
+
+      ion-checkbox {
+          top: -16px;
+      }
 }

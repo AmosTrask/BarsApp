@@ -1,31 +1,88 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{bar?.name}}</ion-title>
+    <ion-title>
+      {{bar?.name}}
+    </ion-title>
   </ion-navbar>
 
 </ion-header>
+
 <ion-content>
-  {{bar?.address}}
-</ion-content>
+  <div>
+    <ion-segment [(ngModel)]="segmentType" (ionChange)="segmentChanged()">
+      <ion-segment-button value="OFFERS">
+        Offers
+      </ion-segment-button>
+      <ion-segment-button value="MENU">
+        Menu
+      </ion-segment-button>
+      <ion-segment-button value="EVENTS">
+        Events
+      </ion-segment-button>
+    </ion-segment>
+  </div>
 
-<ion-content padding>
-  <ion-card *ngFor="let offer of offers">
+  <div padding *ngIf="showOffers">
+    <ion-card *ngFor="let offer of offers">
 
-    <ion-card-header>
-      {{offer.name}}
-    </ion-card-header>
+      <ion-card-header>
+        {{offer.name}}
+      </ion-card-header>
 
-    <ion-card-content>
-      <p>
-        {{offer.description}}
-      </p>
-      <p>
-        Price: {{offer.price}}
-      </p>
-      <p>
-        Pub/Venue: {{offer?.barName}}
-    </ion-card-content>
+      <ion-card-content>
+        <p>
+          {{offer.description}}
+        </p>
+        <p>
+          <strong>
+            Price:
+          </strong> {{offer.price}}€
+        </p>
+        <p>
+      </ion-card-content>
 
-  </ion-card>
+    </ion-card>
+  </div>
+
+  <div *ngIf="showMenu">
+    <div class="selects">
+
+      <div class="item row">
+        <div class="col">
+          <ion-label>Drinks</ion-label>
+          <ion-checkbox [(ngModel)]="drinks" (ionChange)="updateSelectedProducts()">
+          </ion-checkbox>
+        </div>
+        <div class="col">
+          <ion-label>Foods</ion-label>
+          <ion-checkbox [(ngModel)]="foods" (ionChange)="updateSelectedProducts()">
+          </ion-checkbox>
+        </div>
+        <div class="col">
+          <ion-label>Others</ion-label>
+          <ion-checkbox [(ngModel)]="others" (ionChange)="updateSelectedProducts()">
+          </ion-checkbox>
+        </div>
+      </div>
+    </div>
+    <div padding>
+      <ion-card *ngFor="let product of filteredProducts">
+
+        <ion-card-header>
+          {{product.name}}
+        </ion-card-header>
+
+        <ion-card-content>
+          <p>
+            <strong>
+              Price:
+            </strong> {{product.price}}€
+          </p>
+        </ion-card-content>
+
+      </ion-card>
+
+    </div>
+  </div>
 </ion-content>

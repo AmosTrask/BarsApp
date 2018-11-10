@@ -1,4 +1,5 @@
 import { Day } from "./day";
+import { Product } from "./product";
 
 export class Bar {
     _id: string;
@@ -7,10 +8,11 @@ export class Bar {
     coordinates: {
         lat: number;
         lng: number;
-    }
+    };
+    menuProducts: Product[];
     hours: {
         day: Day;
         open: number;
         close: number;
-    } []
+    } [];
 }

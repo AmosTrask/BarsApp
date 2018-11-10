@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-card *ngFor="let bar of bars">
+    <ion-card *ngFor="let bar of bars" (click)="goToBarDetails(bar._id, bar.name)">
 
     <ion-card-header>
       {{bar.name}}
