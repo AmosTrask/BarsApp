@@ -1,5 +1,6 @@
 import { ProductType } from "../enums/productType";
 import { Product } from "./product";
+import { Coordinates } from "./coordinates";
 
 export class Offer {
     _id: string;
@@ -11,4 +12,6 @@ export class Offer {
     products: Product[];
     barName: string;
     barAddress: string;
+    coordinates: Coordinates;
+    distance: string;
 }

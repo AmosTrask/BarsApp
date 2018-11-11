@@ -22,6 +22,14 @@
   </div>
 
   <div padding>
+      <ion-item>
+          <ion-label>Order by </ion-label>
+          <ion-select [(ngModel)]="orderType" interface="popover" (ionChange)="changeOrder()">
+              <ion-option value="PRICE">Price</ion-option>
+              <ion-option value="DISTANCE">Distance</ion-option>
+          </ion-select>
+        </ion-item>
+
     <ion-item>
       <ion-label>Filter by products</ion-label>
       <ionic-selectable item-content [(ngModel)]="selectedProducts" itemValueField="_id" itemTextField="name"
@@ -56,6 +64,12 @@
           </strong>
           {{offer?.barAddress}}
         </p>
+        <p>
+            <strong>
+              Distance:
+            </strong>
+            {{offer?.distance}}km
+          </p>
       </ion-card-content>
 
     </ion-card>

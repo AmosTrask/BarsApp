@@ -27,6 +27,7 @@ import { OffersService } from '../services/offers.service';
 import { EventsService } from '../services/events.service';
 import { ProductService } from '../services/products.service';
 import { IonicRatingModule } from 'ionic-rating';
+import { GeolocationService } from '../services/geolocation.service';
 
 @NgModule({
   declarations: [
@@ -73,6 +74,7 @@ import { IonicRatingModule } from 'ionic-rating';
     OffersService,
     ProductService,
     EventsService,
+    GeolocationService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

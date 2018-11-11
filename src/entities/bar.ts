@@ -1,14 +1,12 @@
 import { Day } from "./day";
 import { Product } from "./product";
+import { Coordinates } from "./coordinates";
 
 export class Bar {
     _id: string;
     name: string;
     address: string;
-    coordinates: {
-        lat: number;
-        lng: number;
-    };
+    coordinates: Coordinates;
     menuProducts: Product[];
     hours: {
         day: Day;
