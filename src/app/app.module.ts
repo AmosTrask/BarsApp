@@ -26,6 +26,7 @@ import { BarDetaillsPage } from '../pages/barDetails/barDetails';
 import { OffersService } from '../services/offers.service';
 import { EventsService } from '../services/events.service';
 import { ProductService } from '../services/products.service';
+import { IonicRatingModule } from 'ionic-rating';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { ProductService } from '../services/products.service';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpClientModule,
-    IonicSelectableModule
+    IonicSelectableModule,
+    IonicRatingModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

@@ -11,6 +11,7 @@ import { BarDetaillsPage } from '../barDetails/barDetails';
 export class BarsPage {
 
   bars: Bar[];
+  rate: number = 5;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private barService: BarsService) {
     this.getAllBars();
@@ -24,5 +25,9 @@ export class BarsPage {
 
   goToBarDetails(id: string, name: String) {
     this.navCtrl.push(BarDetaillsPage, {'id': id, 'name': name});
+  }
+  
+  onModelChange() {
+
   }
 }

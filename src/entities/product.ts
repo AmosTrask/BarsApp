@@ -5,4 +5,5 @@ export class Product {
     name: string;
     productType: ProductType;
     price: number;
+    rating: number;
 }

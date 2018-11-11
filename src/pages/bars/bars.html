@@ -17,9 +17,11 @@
       <p>
         {{bar.address}}
       </p>
-      <p>
-       
-      </p>
+      <rating [(ngModel)]="bar.rating"
+        readonly="false" 
+        small="true" 
+        (ngModelChange)="onModelChange()">
+      </rating>
     </ion-card-content>
 
   </ion-card>

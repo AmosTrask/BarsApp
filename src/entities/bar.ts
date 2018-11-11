@@ -15,4 +15,5 @@ export class Bar {
         open: number;
         close: number;
     } [];
+    rating: number;
 }
