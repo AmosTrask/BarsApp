@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content padding>
-    <ion-card *ngFor="let bar of bars" (click)="goToBarDetails(bar._id, bar.name)">
+  <ion-card *ngFor="let bar of bars" (click)="goToBarDetails(bar._id, bar.name)">
 
     <ion-card-header>
       {{bar.name}}
@@ -15,13 +15,18 @@
 
     <ion-card-content>
       <p>
-        {{bar.address}}
+        <strong>
+          Address:
+        </strong> {{bar.address}}
       </p>
-      <rating [(ngModel)]="bar.rating"
-        readonly="false" 
-        small="true" 
-        (ngModelChange)="onModelChange()">
+      <p>
+        <strong>
+          Distance:
+        </strong> {{bar.distance}}kms
+      </p>
+      <rating [(ngModel)]="bar.rating" readonly="false" small="true" (ngModelChange)="onModelChange()">
       </rating>
+
     </ion-card-content>
 
   </ion-card>

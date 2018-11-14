@@ -14,4 +14,5 @@ export class Bar {
         close: number;
     } [];
     rating: number;
+    distance: string;
 }
