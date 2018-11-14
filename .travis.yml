@@ -20,7 +20,7 @@ deploy:
   api_key:
     secure: "qX+gosvmBl4TqsPIAKbSsmunDCqsnDaJIRmazQfm3H3fg7Kln37lpoqQOahsB4Kryj8zay/huATeEQPhah4bHov+tLHxrq4qaNWebDQrBrjcFjapoXiTabHvpLwQI3RzuFwmjnoroZKtwW0ufNWFVDzzxns0Wrot0vUFGseoLNAEAaEYEChaGrtgnJ7zxTOdZhPHjoYSW/3hxXprsphuI1xxvms94/vDFNuEG7j6tFyWXqq1zyhgbMfnAfygIxtGHcYz3C8xx6033zM9/TrjcFnUtILqlxIll/hKuQnvDQMxjvO8s5M42iOhLmoJ5U3QXS6nmdd6kjk3ZO/oXFMgaV+Tz3EfTmuJKhOEHJMkvmW0+U7ruHzCAwA1SGsZfQGnOSBB8W8Jeeg8NSC9In+T5kjaEpQuB3QvR/hgyeMmA/oRLRJlGClD+Z3bQqt/Hqxxp0bYqtRWzDN7hplNDLNCdze5r6Kue1PU/NEUoz+ExtlWFjPDqihfO7K/DPs8mRmZ+NZkEpOeMsnAftQvLjiOEnHF4L3ZlqfrBqNOFHGv1hq1RzaoDk7sFcWuEt5CSQF1jja8xqhqs3Z03eeapOMhiGFq+D5q+MHsstY7WNk4Q0kwBDJ99VCS973bzY+COObRpxf96kVV9iSgXZ7PBPFxWl/Barv/alXVRH0u+Bdu8v4="
   on:
-    all_branches: true
+    branch: master
 
 cache:
   directories:
