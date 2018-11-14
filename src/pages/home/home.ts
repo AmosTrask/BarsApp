@@ -11,4 +11,15 @@ export class HomePage {
 
   }
 
+  goToOffers() {
+    this.navCtrl.parent.select(1);
+  }
+
+  goToEvents() {
+    this.navCtrl.parent.select(4);
+  }
+
+  goToMap() {
+    this.navCtrl.parent.select(3);
+  }
 }

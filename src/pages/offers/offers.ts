@@ -22,7 +22,7 @@ export class OffersPage {
   products: Product[];
   selectableProducts: Product[];
   selectedProducts: Product[];
-  orderType = "PRICE";
+  orderType = "DISTANCE";
   location: Coordinates;
 
   constructor(public navCtrl: NavController, private offerService: OffersService, private barsService: BarsService,
@@ -39,7 +39,7 @@ export class OffersPage {
       Promise.all(promises).then(() => {
         this.getProducts();
         this.getLocation();
-      })
+      });
     });
   }
 
@@ -51,7 +51,7 @@ export class OffersPage {
         offer.coordinates = bar.coordinates;
         resolve();
       });
-    })
+    });
   }
 
   getProducts() {

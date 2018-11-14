@@ -5,15 +5,15 @@
 </ion-header>
 
 <ion-content>
-    <div class="container">
+    <div class="container" (click)="goToOffers()">
         <img src="assets/imgs/drinks.jpg"/>
         <div class="centered">What offers are near me?</div>
     </div>
-    <div class="container">
+    <div class="container" (click)="goToEvents()">
         <img src="assets/imgs/concert.jpg"/>
         <div class="centered">What events are near me?</div>
     </div>
-    <div class="container">
+    <div class="container" (click)="goToMap()">
         <img src="assets/imgs/bar.jpg"/>
         <div class="centered">Where are the pubs located?</div>
     </div>
