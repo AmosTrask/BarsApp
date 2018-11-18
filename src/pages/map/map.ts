@@ -11,6 +11,13 @@ import { BarDetaillsPage } from '../barDetails/barDetails';
 })
 export class MapPage {
 
+  posIcon = leaflet.icon({
+    iconUrl: 'assets/imgs/position.png',
+
+    iconSize:     [28, 42], // size of the icon
+    iconAnchor:   [14, 42], // point of the icon which will correspond to marker's location
+});
+
   bars: Bar[];
 
   @ViewChild('map') mapContainer: ElementRef;
@@ -41,7 +48,10 @@ export class MapPage {
       maxZoom: 12
     }).on('locationfound', (e) => {
       let markerGroup = leaflet.featureGroup();
-      let marker: any = leaflet.marker([e.latitude, e.longitude]);
+      let marker: any = leaflet.marker([e.latitude, e.longitude], {icon: this.posIcon});
+      var domelem = document.createElement('div');
+      domelem.innerHTML = "<b>My location</b>";
+      marker.bindPopup(domelem).openPopup();
       markerGroup.addLayer(marker);
       this.map.addLayer(markerGroup);
       }).on('locationerror', (err) => {
